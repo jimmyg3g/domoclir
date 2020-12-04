@@ -1,0 +1,16 @@
+Package: domoclir
+Title: An R wrapper for Domo's Java CLI
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jimmy",
+           family = "Glenn",
+           role = c("aut", "cre"),
+           email = "jimmykglenn@gmail.com")
+Description: An R wrapper for Domo's Java CLI.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+URL: https://github.com/jimmyg3g/domoclir
+BugReports: https://github.com/jimmyg3g/domoclir/issues
