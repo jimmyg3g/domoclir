@@ -65,6 +65,33 @@ dsGetVersion <- function(ds_id, format = 'wide') {
 		}
 }
 
+#' Dataset Get Details
+#'
+#' get-detaset: returns dataset details for the specified id
+#'
+#' @param ds_id dataset id
+#' @param filename
+#'
+#' @return
+#' @export
+#'
+#'
+dsGetDetails <- function(ds_id, filename = NULL, read_file = TRUE) {
+	if(is.null(filename)) {
+		temp_file <- TRUE
+		filename <- tempfile(fileext = '.json')
+	}
+	args <- list(id = ds_id, filename = filename) %>%
+		fnArgs()
+	domo_command <- glue::glue("get-dataset {args}")
+	domoFn(domo_command)
+	if(read_file) {
+		jsonlite::fromJSON(filename, flatten = TRUE)
+		}
+}
+
+
+
 
 #' Dataset Derive Schema
 #'
@@ -145,7 +172,7 @@ dsCreate <- function(description = NULL, ds_id = NULL, name, schema_file, type, 
 #' @param ds_id dataset id
 #' @param headers data file has a header row
 #' @param ds_name dataset name
-#' @param schema_file filename for schema definition
+#' @param schema_file filename for schema definition, if a schema-file is provided, then Domo creates a new dataset, hrm.
 #' @param type dataset type
 #' @param append append to existing data (this options is required when doing Upserts or Partitions)
 #'

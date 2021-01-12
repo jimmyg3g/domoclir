@@ -23,7 +23,7 @@ dsUpload(
 
 \item{ds_name}{dataset name}
 
-\item{schema_file}{filename for schema definition}
+\item{schema_file}{filename for schema definition, if a schema-file is provided, then Domo creates a new dataset, hrm.}
 
 \item{type}{dataset type}
 
